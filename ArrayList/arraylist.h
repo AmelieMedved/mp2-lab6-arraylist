@@ -36,17 +36,17 @@ public:
   T GetFirst();
   T GetLast();
 
+  bool IsFull() const;
+  bool IsEmpty() const;
+  int GetCount(); // количество элементов
+
   template <class T1>
   friend ostream& operator<< (ostream& ostr, const TArrayList<T1> &A);
   template <class T1>
   friend istream& operator >> (istream& istr, TArrayList<T1> &A);
 
-  template <class T>
+  template <class T1>
   friend class TArrayListIterator;
-
-  bool IsFull() const;
-  bool IsEmpty() const;
-  int GetCount(); // количество элементов
 };
 
 template <class T>
