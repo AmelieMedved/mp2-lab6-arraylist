@@ -233,14 +233,14 @@ void TArrayList<T>::InsLast(T d)
 }
 
 template<class T>
-inline void TArrayList<T>::Ins(TArrayListIterator<T>& e, T d)
+void TArrayList<T>::Ins(TArrayListIterator<T>& e, T d)
 {
 }
 
 template<class T>
 TArrayListIterator<T> TArrayList<T>::begin()
 {
-  return TArrayListIterator<T>(*this, root);
+  return TArrayListIterator<T>(*this, this->root);
 }
 
 template<class T>

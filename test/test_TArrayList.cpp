@@ -132,7 +132,7 @@ TEST(TArrayList, array_list_iterator_can_go_through_list)
   al.InsFirst(3);
   al.InsFirst(4);
 
-  TArrayListIterator<int> it = al.begin();
+  TArrayListIterator<int> it(al.begin());
 
   int i = 4;
   for (it; it != al.end(); ++it)

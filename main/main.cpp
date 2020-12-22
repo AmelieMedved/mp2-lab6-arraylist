@@ -27,18 +27,18 @@ int main()
   //for (TArrayListIterator<char> j = d.begin(); j != d.end(); ++j)
   //  std::cout << *j << "\n";
 
-  TArrayList<int> al(5);
+  //TArrayList<int> al(5);
  
-  al.InsFirst(0);
-  al.InsFirst(1);
-  al.InsFirst(3);
-  al.InsFirst(4);
-  al.InsFirst(5);
+  //al.InsFirst(0);
+  //al.InsFirst(1);
+  //al.InsFirst(3);
+  //al.InsFirst(4);
+  //al.InsFirst(5);
 
-  TArrayListIterator<int> it = al.begin();
+  //TArrayListIterator<int> it(al.begin());
 
-  for (it; it != al.end(); ++it)
-    cout << it.GetData() << '\n';
+  //for (it; it != al.end(); ++it)
+  //  cout << it.GetData() << '\n';
 
   return 0;
 }
