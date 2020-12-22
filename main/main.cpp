@@ -35,7 +35,7 @@ int main()
   al.InsFirst(4);
   al.InsFirst(5);
 
-  TArrayListIterator<int> it(al.begin());
+  TArrayListIterator<int> it = al.begin();
 
   for (it; it != al.end(); ++it)
     cout << it.GetData() << '\n';

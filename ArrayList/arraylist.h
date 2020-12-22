@@ -240,7 +240,7 @@ void TArrayList<T>::Ins(TArrayListIterator<T>& e, T d)
 template<class T>
 TArrayListIterator<T> TArrayList<T>::begin()
 {
-  TArrayListIterator<T>temp (*this, this->root);
+  TArrayListIterator<T>temp (*this, (this->root));
   return temp;
 }
 
