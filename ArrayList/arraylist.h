@@ -69,7 +69,7 @@ public:
   bool operator == (const TArrayListIterator<T>& _v);
   bool operator != (const TArrayListIterator<T>& _v);
   TArrayListIterator<T>& operator ++(); // возвращает себя после изменения (в отличие от GoNext)
-  TArrayListIterator<T>& operator =(const TArrayListIterator<T>& _v);
+  TArrayListIterator<T>& operator =(TArrayListIterator<T>& _v);
 
   T GetData();
 };
@@ -174,10 +174,9 @@ TArrayList<T>& TArrayList<T>::operator =(TArrayList<T>& _v)
 
   for (int i = 0; i < size; i++)
   {
-    links = _v.links[i];
+    links[i] = _v.links[i];
     data[i] = _v.data[i];
   }
-
 }
 
 template<class T>
@@ -338,9 +337,8 @@ int TArrayList<T>::GetCount()
 }
 
 template<class T>
-TArrayListIterator<T>::TArrayListIterator(TArrayList<T>& _list, int _index) : list(_list)
+TArrayListIterator<T>::TArrayListIterator(TArrayList<T>& _list, int _index) : list(_list), index(_index)
 {
-  this->index = _index;
 }
 
 template<class T>
@@ -399,7 +397,7 @@ TArrayListIterator<T>& TArrayListIterator<T>::operator++()
 }
 
 template<class T>
-TArrayListIterator<T>& TArrayListIterator<T>::operator=(const TArrayListIterator<T>& _v)
+TArrayListIterator<T>& TArrayListIterator<T>::operator=(TArrayListIterator<T>& _v)
 {
   list = _v.list;
   index = _v.index;
