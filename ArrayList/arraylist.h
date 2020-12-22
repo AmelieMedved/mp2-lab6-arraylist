@@ -17,10 +17,10 @@ protected:
   int root;
 public:
   TArrayList(int _size = 1); // конструктор по умолчанию
-  TArrayList(const TArrayList<T>& _v); // конструктор копирования
+  TArrayList(TArrayList<T>& _v); // конструктор копирования
   ~TArrayList();
 
-  TArrayList<T>& operator =(const TArrayList<T>& _v); // оператор сравнения
+  TArrayList<T>& operator =(TArrayList<T>& _v); // оператор сравнения
 
   void InsFirst(T d); // запись элемента в стек
   void InsLast(T d);
@@ -122,7 +122,7 @@ TArrayList<T>::TArrayList(int _size)
 }
 
 template <class T>
-TArrayList<T>::TArrayList(const TArrayList<T>& _v)
+TArrayList<T>::TArrayList(TArrayList<T>& _v)
 {
   count = _v.count;
   size = _v.size;
@@ -154,7 +154,7 @@ TArrayList<T>::~TArrayList()
 }
 
 template <class T>
-TArrayList<T>& TArrayList<T>::operator =(const TArrayList<T>& _v)
+TArrayList<T>& TArrayList<T>::operator =(TArrayList<T>& _v)
 {
   if (this == &_v)
     return *this;
@@ -240,13 +240,15 @@ void TArrayList<T>::Ins(TArrayListIterator<T>& e, T d)
 template<class T>
 TArrayListIterator<T> TArrayList<T>::begin()
 {
-  return TArrayListIterator<T>(*this, this->root);
+  TArrayListIterator<T>temp (*this, this->root);
+  return temp;
 }
 
 template<class T>
 TArrayListIterator<T> TArrayList<T>::end()
 {
-  return TArrayListIterator<T>(*this, -1);
+  TArrayListIterator<T> temp(*this, -1);
+  return temp;
 }
 
 
@@ -344,7 +346,6 @@ TArrayListIterator<T>::TArrayListIterator(TArrayList<T>& _list, int _index) : li
 template<class T>
 TArrayListIterator<T>::TArrayListIterator(TArrayListIterator<T>& _v) : list(_v.list), index(_v.index)
 {
-
 }
 
 template<class T>
